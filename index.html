@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .header {
+            background: url('images/header.jpg') no-repeat center center;
+            background-size: cover;
+            height: 550px;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        #facilities {
+            background-color: #ffffff;
+        }
+
+        .facility-card {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideIn 0.6s forwards;
+        }
+
+        .facility-card:hover {
+            transform: scale(1.03);
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-delay.delay-0 .facility-card { animation-delay: 0.2s; }
+        .animate-delay.delay-1 .facility-card { animation-delay: 0.6s; }
+        .animate-delay.delay-2 .facility-card { animation-delay: 1s; }
+
+        /* About Section */
+#about {
+    padding: 60px 0;
+}
+
+#about h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #555;
+}
+
+/* About Images */
+#about img {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+/* Specific Styling for Vision Image */
+/* Specific Styling for Vision Image */
+.vision-img {
+    width: 60%; /* or 50%, adjust as you like */
+    height: auto; /* maintain aspect ratio */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+    .vision-img {
+        width: 80%; /* slightly larger on small screens */
+        height: auto;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">ZERO TOUCH HOTEL</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#facilities">Facilities</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                </ul>
+                <button class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Image -->
+    <header class="header"></header>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="container-fluid py-5">
+        <h2 class="text-center mb-5">Our Signature Facilities</h2>
+        <div class="row g-4 px-5">
+            <div class="col-md-4 animate-delay delay-1">
+                <div class="facility-card" style="background-image: url('images/pool.jpg');"></div>
+            </div>
+            <div class="col-md-4 animate-delay delay-0">
+                <div class="facility-card" style="background-image: url('images/spa.jpg');"></div>
+            </div>
+            <div class="col-md-4 animate-delay delay-2">
+                <div class="facility-card" style="background-image: url('images/dining.jpg');"></div>
+            </div>
+        </div>
+    </section>
+
+   <!-- About Section -->
+<section id="about" class="container py-5">
+    <div class="row align-items-center">
+        <!-- First block: Image Left, Text Right -->
+        <div class="col-md-6 mb-4 mb-md-0">
+            <img src="images/about.jpg" alt="About Us" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-md-6">
+            <h2>About Our Hotel</h2>
+            <p>Welcome to our Hits Contactless Hotel – a modern solution designed for your safety, comfort, and convenience. Whether you're on a business trip or vacation, we ensure a seamless experience from check-in to check-out.</p>
+            <p>Our advanced digital key system, luxurious facilities, and fully automated process allow you to enjoy your stay without long queues or paperwork. We are committed to offering you a smooth, tech-powered hospitality experience.</p>
+            <p>Come stay with us and explore a new way of travel.</p>
+        </div>
+    </div>
+
+    <div class="row align-items-center mt-5">
+        <!-- Second block: Text Left, Image Right -->
+        <div class="col-md-6 order-md-1 order-2">
+            <h2>Our Vision</h2>
+            <p>We aim to redefine hospitality by combining technology and personalized service. Our goal is to create an environment where guests feel secure, valued, and completely at ease — whether they are checking in, relaxing, or heading out.</p>
+            <p>Driven by innovation, we constantly enhance our services to meet the changing needs of modern travelers.</p>
+        </div>
+        <div class="col-md-6 order-md-2 order-1 mb-4 mb-md-0">
+            <img src="images/vision.jpg" alt="Our Vision" class="img-fluid rounded shadow vision-img">
+        </div>
+    </div>
+</section>
+
+
+    <!-- Contact Modal -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Contact Us</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="php/contact_us.php" method="POST">
+                        <div class="mb-3">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Subject</label>
+                            <input type="text" name="subject" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Message</label>
+                            <textarea name="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" name="send" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title">Login</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+                <div class="modal-body">
+                    <form action="php/login.php" method="post">
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control" required>
+                        </div>
+                        <p class="text-center">
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot Password?</a>
+                        </p>
+                        <button type="submit" class="btn btn-primary w-100">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Forgot Password?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="forgotPasswordForm" method="post" action="php/forgot_password.php">
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Continue</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><h5 class="modal-title">Register</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+                <div class="modal-body">
+                    <form action="php/register.php" method="post">
+                        <div class="mb-3">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input type="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Phone Number</label>
+                            <input type="tel" name="mobile" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Password</label>
+                            <input type="password" name="password" class="form-control" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-4 pb-2 mt-5">
+    <div class="container text-center">
+        <p class="mb-1">&copy; 2025 Zero Touch Hotel. All rights reserved.</p>
+        <small>
+            <p class="mb-1">Address: Chennai, Tamil Nadu, India</p>
+            <p class="mb-0">Phone: +91 6383257029 | Email: ammuvijayarangan23@gmail.com</p>
+        </small>
+    </div>
+</footer>
+
+</body>
+</html>
